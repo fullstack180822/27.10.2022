@@ -22,7 +22,7 @@ my_details.run()
 // *********************************
 
 for (e in my_details) {
-    //console.log(`${e}: ${my_details[e]}`)
+    console.log(`${e}: ${my_details[e]}`)
 }
 const prop = 'name'
 console.log(my_details[prop])
