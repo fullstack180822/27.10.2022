@@ -75,8 +75,8 @@ function odd_even(arr) {
     //return { 'odds':odds, 'even': even }  
     return { odds, even }
 }
-var arr = [23,56,4,4,78,5,63,45,210,56,4] 
-console.log(odd_even(arr, 4))
+//var arr = [23,56,4,4,78,5,63,45,210,56,4] 
+//console.log(odd_even(arr, 4))
 
 // another way to solve it ....
 // **etgar
@@ -92,6 +92,61 @@ function odd_even_another_way(arr) {
     }
     return result
 }
-var arr = [23,56,4,4,78,5,63,45,210,56,4] 
-console.log(odd_even(arr, 4))
+//var arr = [23,56,4,4,78,5,63,45,210,56,4] 
+//console.log(odd_even(arr, 4))
 
+/*
+Write a function called findDup() that returns all the elements that are repeated more than
+once in a given array.
+Return the result as a Javascript object (the key should be the repeated element, the value
+should be the amount of times this element repeated).
+If an element appears only once it should not be added to the result object.
+*/
+function findDup(arr) {
+    const result = { }
+    for(e of arr) {
+        if (result[e] == undefined) {
+            result[e] = 1
+        }
+        else {
+            result[e] += 1
+        }
+    }
+    for (e in result) {
+        if (result[e] == 1) {
+            delete result[e]
+        }
+    }
+    return result
+}
+
+let arr = [23,23,56,4,4,78,5,63,45,210,56,4] 
+console.log(findDup(arr))
+
+// another way using sort ...
+function findDup_with_sort(arr) {
+    const result = { }
+    arr.sort()
+    let current = arr[0]
+    let counter = 1
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] == current) {
+            counter++;
+        }
+        else {
+            if (counter > 1) {
+                result[current] = counter
+            }
+            current = arr[i]
+            counter = 1
+        }
+    }
+    if (counter > 1) {
+        result[current] = counter
+    }
+    return result
+}
+
+arr = [23,23,56,4,4,78,5,63,45,210,56,4, 4] 
+console.log(findDup(arr))
+console.log(findDup_with_sort(arr))
