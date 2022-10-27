@@ -167,3 +167,55 @@ function arr_bool_9(arr) {
 }
 console.log(arr_bool_9([true, true, true, false, true, false]));
 
+/*
+Create a function that receives an array.
+If all the values of the array are smaller than 50, the function returns “smaller than 50”.
+If all the values of the array are between 51 to 100, the function returns “ between 51 to
+100”.
+If all the values of the array are between 101 to 200, the function returns “between 101 to
+200”.
+If all the values of the array are greater than 201, the function returns “greater than 200”.
+If none of the conditions above is happening your function should print “No condition is
+happening” .
+*/
+function check_in_range(arr) {
+    // smaller than 50
+    let found_lo_matim = false
+    index = 0;
+    for (index = 0; index < arr.length; index++) {
+        if (arr[index] >= 50) {
+            break;
+        }
+    }
+    if (index == arr.length) {
+        return 'all smaller than 50!'
+    }
+    index = 0;
+    for (index = 0; index < arr.length; index++) {
+        if (arr[index] >= 51 && arr[index] <= 100) {
+            break;
+        }
+    }
+    if (index == arr.length) {
+        return 'all between 51 and 100'
+    }
+    // .. two more loops the same
+
+}
+
+/*
+Write a function that receives four parameters of type int.
+The function has to return the smaller value between all of them.
+If one of the parameters is between 1 to 5, then return -1.
+*/
+function check_minimum(a, b, c, d) {
+    const list1 = [a, b, c, d]
+    for(let e in list1) {
+        if (e >= 1 && e <= 5) {
+            return -1
+        }
+    }
+    let min = Math.min(...list1) // found the smallest element
+    return min
+}
+console.log(check_minimum(-3, 7, 9, 10));
