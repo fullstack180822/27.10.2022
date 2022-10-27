@@ -20,26 +20,26 @@ function deleteElement(arr, e) {
     // 0
     for (let i = arr.length - 1; i >= 0; i--) {
         if (arr[i] === e) {
-            arr.splice (i, 1)
+            arr.splice(i, 1)
         }
     }
     return;
     // 1    
     for (let i = 0; i < arr.length; i++) {
         while (arr[i] === e) {
-            arr.splice (i, 1)
+            arr.splice(i, 1)
         }
     }
     // 1.5
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === e) {
-            arr.splice (i--, 1)
+            arr.splice(i--, 1)
         }
-    }    
+    }
     // 2
     for (let i = 0; true;) {
         if (arr[i] === e) {
-            arr.splice (i, 1)
+            arr.splice(i, 1)
         }
         else {
             i++;
@@ -61,10 +61,10 @@ function odd_even(arr) {
     let even = 0
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] % 2 !== 0) {
-            odds ++
+            odds++
         }
         else {
-            even ++
+            even++
         }
         // shortcuts [optional]:
         //odds += arr[i] % 2 == 1 ? 1 : 0
@@ -103,8 +103,8 @@ should be the amount of times this element repeated).
 If an element appears only once it should not be added to the result object.
 */
 function findDup(arr) {
-    const result = { }
-    for(e of arr) {
+    const result = {}
+    for (e of arr) {
         if (result[e] == undefined) {
             result[e] = 1
         }
@@ -120,12 +120,12 @@ function findDup(arr) {
     return result
 }
 
-let arr = [23,23,56,4,4,78,5,63,45,210,56,4] 
+let arr = [23, 23, 56, 4, 4, 78, 5, 63, 45, 210, 56, 4]
 console.log(findDup(arr))
 
 // another way using sort ...
 function findDup_with_sort(arr) {
-    const result = { }
+    const result = {}
     arr.sort()
     let current = arr[0]
     let counter = 1
@@ -147,6 +147,23 @@ function findDup_with_sort(arr) {
     return result
 }
 
-arr = [23,23,56,4,4,78,5,63,45,210,56,4, 4] 
+arr = [23, 23, 56, 4, 4, 78, 5, 63, 45, 210, 56, 4, 4]
 console.log(findDup(arr))
 console.log(findDup_with_sort(arr))
+
+function arr_bool_9(arr) {
+    let index = 0;
+    while (true) {
+        if (arr[index] == false) {
+            return index;
+        }
+        else {
+            index++;
+            if (index >= arr.length) {
+                return -1;
+            }
+        }
+    }
+}
+console.log(arr_bool_9([true, true, true, false, true, false]));
+
